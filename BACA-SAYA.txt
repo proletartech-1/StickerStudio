@@ -2,6 +2,7 @@ PROLETAR PROJECT STICKER GENERATOR (aplikasi web / PWA)
 
 Isi folder ini harus diunggah SEMUA ke hosting HTTPS, lalu dibuka dari alamatnya:
 - index.html, manifest.webmanifest, sw.js, proletar-logo.png, icon-192.png, icon-512.png, icon-maskable-512.png
+- Proletar Tech · Invoice.html
 
 Cara pasang jadi aplikasi (tanpa Play Store):
 1. Unggah folder ke hosting gratis: Netlify Drop (app.netlify.com/drop), GitHub Pages, atau Cloudflare Pages.
@@ -42,6 +43,9 @@ Studio Warna:
 
 Pratinjau File:
 - Menu **Pratinjau File** membuka PDF, SVG/SVGZ, PNG, JPG, WebP, GIF, BMP, dan AVIF secara lokal di browser. Untuk CDR/AI/EPS dan sebagian format vektor, aplikasi mencari gambar preview yang tertanam; hasilnya bisa hanya thumbnail. Jika file tidak berisi thumbnail yang dapat dibaca browser, ekspor dari aplikasi asal ke PDF atau SVG lalu buka hasilnya.
+
+Invoice:
+- Tab **Invoice** menyediakan editor, cetak/PDF, pengiriman WhatsApp, dan riwayat invoice. Data tersimpan secara lokal dan terpisah dari data alat stiker di browser perangkat ini.
 
 Nama file lembar cetak:
 - Templat CDR potret tersedia pada pilihan cepat: halaman 325 × 485 mm dengan bingkai magenta 305 × 435 mm sebagai panduan area print di preview saja, sesuai posisi file referensi (margin sekitar 10 mm kiri/kanan, 32,85 mm atas, dan 17,15 mm bawah). Bingkai tidak diekspor sebagai jalur potong. Marka hitam berupa siku L terbuka di empat sudut bingkai serta dua titik bulat di atas kertas. Preset menjaga jarak aman minimal 5 mm antara stiker dan siku L. Untuk grid, posisi semua bentuk dan ukuran stiker dihitung agar muat sebanyak mungkin; sisa ruang dibagi pada jarak antarstiker tanpa mengurangi jarak minimum dan stiker yang lebih besar dari area bermargin tidak ditempatkan. Stiker bulat memakai zigzag khusus CDR dan sisa ruang dibagi rata, dengan jarak minimum antarstiker tetap terjaga. Kontur magenta pada setiap stiker adalah jalur potong sesuai ukuran stiker; lingkaran batas aman hitam tidak digunakan. Siku L dan titik registrasi tidak dimasukkan ke jalur potong stiker. Preset ini terpisah dari A3+ standar.

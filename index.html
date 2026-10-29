@@ -114,6 +114,10 @@ body.tab-upscale #upscale-card{display:block!important}
 #file-viewer-card{display:none}
 body.tab-viewer main > .card:not(#file-viewer-card),body.tab-viewer .modebar,body.tab-viewer .vcard{display:none!important}
 body.tab-viewer #file-viewer-card{display:block!important}
+#invoice-card{display:none}
+body.tab-invoice main > .card:not(#invoice-card),body.tab-invoice .modebar,body.tab-invoice .vcard{display:none!important}
+body.tab-invoice #invoice-card{display:block!important}
+.invoice-frame{display:block;width:100%;height:85vh;min-height:760px;border:1px solid var(--bd);border-radius:12px;background:var(--card)}
 .file-viewer-stage{display:grid;place-items:center;min-height:320px;max-height:78vh;overflow:auto;border:1px solid var(--bd);border-radius:12px;background:#fff}
 .file-viewer-stage img{display:block;max-width:100%;max-height:78vh;object-fit:contain}
 .file-viewer-stage iframe{display:block;width:100%;height:min(78vh,900px);min-height:520px;border:0;background:#fff}
@@ -189,7 +193,7 @@ h1{font-size:clamp(26px,4vw,34px);letter-spacing:-.045em;line-height:1.08}
 p.s{font-size:14px;max-width:630px;margin-bottom:18px}
 body{background:var(--ac);color:var(--tx);background-attachment:fixed}
 main{width:calc(100% - clamp(20px,5vw,72px));max-width:1680px;margin:clamp(10px,2vw,24px) auto;padding:clamp(18px,2.5vw,38px);border-radius:26px;background:var(--bg);box-shadow:0 18px 48px #26131124}
-.maintabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;overflow:visible;padding:7px;margin:0 0 20px;border:1px solid var(--bd);border-radius:16px;background:var(--surface)}
+.maintabs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;overflow:visible;padding:7px;margin:0 0 20px;border:1px solid var(--bd);border-radius:16px;background:var(--surface)}
 .maintabs button{display:flex;align-items:center;justify-content:center;gap:8px;min-width:0;padding:13px 12px;border:1px solid transparent;border-radius:11px;background:transparent;color:var(--tx);font-size:14px;font-weight:700;box-shadow:none;transition:transform .18s,border-color .18s,background .18s,color .18s;scroll-snap-align:unset}
 .maintabs button:hover{transform:translateY(-1px);border-color:var(--cognac);background:var(--bg)}
 .maintabs button.on{background:var(--ac);color:var(--bg);border-color:var(--ac);box-shadow:0 5px 14px #1c393433}
@@ -219,7 +223,7 @@ input[type=range]{accent-color:var(--ac)}
 .workflow span{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:color-mix(in srgb,var(--ac) 8%,var(--card));color:var(--mut);font-size:11px;font-weight:750}
 .workflow b{display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--ac);color:#fff;font-size:10px}
 .workflow i{color:var(--bd);font-style:normal}
-body.tab-studio .sheet-work,body.tab-remove .sheet-work,body.tab-upscale .sheet-work,body.tab-viewer .sheet-work{display:none!important}
+body.tab-studio .sheet-work,body.tab-remove .sheet-work,body.tab-upscale .sheet-work,body.tab-viewer .sheet-work,body.tab-invoice .sheet-work{display:none!important}
 .sheet-work{display:flex;flex-direction:column}
 .sheet-controls{order:1}
 .sheet-preview{order:2}
@@ -270,8 +274,13 @@ canvas#cv{width:auto;height:auto;max-width:100%;max-height:80vh}
 <p class="s">Bikin, edit, dan siapkan stiker dengan workflow kreatif yang simpel. Semua proses gambar tetap di perangkatmu.</p>
 </div>
 </div>
-<div class="maintabs" role="tablist" aria-label="Tab alat"><button id="t-studio" role="tab" aria-selected="false" aria-controls="studio-host" tabindex="-1">🎨 Studio Warna</button><button id="t-remove" role="tab" aria-selected="false" aria-controls="remove-card" tabindex="-1">✂️ Hapus Latar</button><button id="t-upscale" role="tab" aria-selected="false" aria-controls="upscale-card" tabindex="-1">🔎 Upscaler</button><button id="t-sheet" class="on" role="tab" aria-selected="true" aria-controls="sheet-panel" tabindex="0">🧩 Lembar Stiker</button><button id="t-viewer" role="tab" aria-selected="false" aria-controls="file-viewer-card" tabindex="-1">📂 Pratinjau File</button></div>
+<div class="maintabs" role="tablist" aria-label="Tab alat"><button id="t-studio" role="tab" aria-selected="false" aria-controls="studio-host" tabindex="-1">🎨 Studio Warna</button><button id="t-remove" role="tab" aria-selected="false" aria-controls="remove-card" tabindex="-1">✂️ Hapus Latar</button><button id="t-upscale" role="tab" aria-selected="false" aria-controls="upscale-card" tabindex="-1">🔎 Upscaler</button><button id="t-sheet" class="on" role="tab" aria-selected="true" aria-controls="sheet-panel" tabindex="0">🧩 Lembar Stiker</button><button id="t-viewer" role="tab" aria-selected="false" aria-controls="file-viewer-card" tabindex="-1">📂 Pratinjau File</button><button id="t-invoice" role="tab" aria-selected="false" aria-controls="invoice-card" tabindex="-1">🧾 Invoice</button></div>
 <div id="studio-host" role="tabpanel" aria-labelledby="t-studio" tabindex="0"></div>
+<section class="card" id="invoice-card" role="tabpanel" aria-labelledby="t-invoice" tabindex="0">
+<h2>Invoice Proletar Tech</h2>
+<p class="info">Buat dan kelola invoice. Data tersimpan secara lokal di browser pada perangkat ini.</p>
+<iframe class="invoice-frame" title="Editor dan riwayat Invoice Proletar Tech" src="Proletar%20Tech%20%C2%B7%20Invoice.html" loading="lazy"></iframe>
+</section>
 <section class="card" id="file-viewer-card" role="tabpanel" aria-labelledby="t-viewer" tabindex="0">
 <h2>Pratinjau File</h2>
 <p class="info">Pilih satu file untuk dibuka di perangkat ini. Mendukung PDF, SVG/SVGZ, PNG, JPG, WebP, GIF, BMP, dan AVIF. File CDR dicoba dari gambar pratinjau yang tertanam di dalam file; hasil ini bisa berupa thumbnail, bukan render vektor penuh. File tidak diunggah ke server.</p>
@@ -3222,7 +3231,8 @@ function setTab(t){
   document.body.classList.toggle('tab-remove',t==='remove');
   document.body.classList.toggle('tab-upscale',t==='upscale');
   document.body.classList.toggle('tab-viewer',t==='viewer');
-  const tabs={studio:'t-studio',remove:'t-remove',upscale:'t-upscale',sheet:'t-sheet',viewer:'t-viewer'};
+  document.body.classList.toggle('tab-invoice',t==='invoice');
+  const tabs={studio:'t-studio',remove:'t-remove',upscale:'t-upscale',sheet:'t-sheet',viewer:'t-viewer',invoice:'t-invoice'};
   Object.entries(tabs).forEach(([key,id])=>{const selected=key===t,button=$(id);button.classList.toggle('on',selected);button.setAttribute('aria-selected',String(selected));button.tabIndex=selected?0:-1});
   window.scrollTo(0,0);
 }
@@ -3232,7 +3242,7 @@ function setTab(t){
   initStudio(root);
   enableImageDrop('sheet-upload-label','file');
   initFileViewer();
-  $('t-studio').onclick=()=>setTab('studio');$('t-remove').onclick=()=>setTab('remove');$('t-upscale').onclick=()=>setTab('upscale');$('t-sheet').onclick=()=>setTab('sheet');$('t-viewer').onclick=()=>setTab('viewer');
+  $('t-studio').onclick=()=>setTab('studio');$('t-remove').onclick=()=>setTab('remove');$('t-upscale').onclick=()=>setTab('upscale');$('t-sheet').onclick=()=>setTab('sheet');$('t-viewer').onclick=()=>setTab('viewer');$('t-invoice').onclick=()=>setTab('invoice');
   const tabButtons=[...document.querySelectorAll('.maintabs [role=tab]')];
   document.querySelector('.maintabs').addEventListener('keydown',event=>{
     if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
